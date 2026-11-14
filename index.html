@@ -1,58 +1,394 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infinity Nexus</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #10121c;
-            color: white;
-            text-align: center;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infinity Nexus | Building Worlds. Creating History.</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://w3.org viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎭</text></svg>">
+  <meta property="og:title" content="Infinity Nexus Studios | Building Worlds. Creating History.">
+  <meta property="og:description" content="Official hub for Infinity Nexus — 3D horror survival, scrambling code-combat, and guild wars.">
+  <style>
+    :root {
+      --bg-dark: #07080a;
+      --bg-panel: #0f1117;
+      --bg-card: #161922;
+      --accent-blue: #3b82f6;
+      --accent-crimson: #991b1b;
+      --accent-gold: #eab308;
+      --text-main: #e2e8f0;
+      --text-muted: #64748b;
+      --border-color: #1e293b;
+    }
 
-        header {
-            background: #191d2e;
-            padding: 25px;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier New', Courier, monospace;
+    }
 
-        h1 {
-            color: #65b5ff;
-        }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-        section {
-            padding: 45px 20px;
-        }
+    .security-bar {
+      background: #020304;
+      border-bottom: 1px solid var(--accent-crimson);
+      padding: 6px 16px;
+      font-size: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: #94a3b8;
+    }
 
-        p {
-            color: #cccccc;
-            line-height: 1.6;
-        }
-    </style>
+    .status-dot {
+      height: 8px;
+      width: 8px;
+      background-color: #22c55e;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 6px;
+      box-shadow: 0 0 8px #22c55e;
+    }
+
+    header {
+      background: radial-gradient(circle at center, #111827 0%, #07080a 100%);
+      border-bottom: 1px solid var(--border-color);
+      padding: 32px 20px;
+      text-align: center;
+    }
+
+    .masked-entity-emblem {
+      width: 74px;
+      height: 74px;
+      margin: 0 auto 12px;
+      border: 2px solid var(--text-muted);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      box-shadow: 0 0 25px rgba(153, 27, 27, 0.45);
+      font-size: 2rem;
+    }
+
+    h1 {
+      color: var(--accent-blue);
+      font-size: 2.1rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+    }
+
+    .tagline {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 6px;
+    }
+
+    .header-actions {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .play-launch-btn {
+      background: var(--accent-crimson);
+      color: #fff;
+      border: 1px solid #f87171;
+      padding: 13px 26px;
+      font-size: 1rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(153, 27, 27, 0.5);
+      transition: 0.2s;
+    }
+
+    .play-launch-btn:hover {
+      background: #b91c1c;
+      transform: scale(1.03);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .ad-slot {
+      background: #0b0d12;
+      border: 1px dashed #334155;
+      color: var(--text-muted);
+      text-align: center;
+      padding: 16px;
+      margin: 18px 0;
+      font-size: 0.8rem;
+      border-radius: 6px;
+    }
+
+    .auth-panel {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-color);
+      padding: 18px;
+      border-radius: 8px;
+      margin-bottom: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .btn {
+      background: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--accent-blue);
+      padding: 9px 14px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 0.84rem;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      background: var(--accent-blue);
+      color: #000;
+    }
+
+    .btn-danger { border-color: var(--accent-crimson); color: #fca5a5; }
+    .btn-danger:hover { background: var(--accent-crimson); color: #fff; }
+    .btn-green { border-color: #22c55e; color: #86efac; }
+    .btn-green:hover { background: #22c55e; color: #000; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .card {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .card h2 {
+      font-size: 1.08rem;
+      color: #f8fafc;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+    }
+
+    .stat-box {
+      background: #07080a;
+      padding: 12px;
+      border-radius: 4px;
+      border: 1px solid #1e293b;
+      margin-top: 10px;
+      font-size: 0.84rem;
+    }
+
+    .stat-value {
+      font-size: 1.25rem;
+      color: #22c55e;
+      font-weight: bold;
+    }
+
+    /* Nintendo-Inspired Contest & Horror Arcade */
+    .nintendo-console {
+      background: linear-gradient(145deg, #18181b, #09090b);
+      border: 2px solid #ef4444;
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 24px;
+      box-shadow: 0 0 25px rgba(239, 68, 68, 0.2);
+    }
+
+    .console-screen {
+      background: #020617;
+      border: 2px solid #334155;
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .progress-bar-wrap {
+      width: 100%;
+      height: 14px;
+      background: #1e293b;
+      border-radius: 7px;
+      overflow: hidden;
+      margin: 10px 0;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #ef4444, #eab308, #22c55e);
+      transition: width 0.15s;
+    }
+
+    .console-pad-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .console-btn {
+      background: #1e293b;
+      border: 2px solid #64748b;
+      color: #f8fafc;
+      padding: 14px 6px;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 0.84rem;
+      cursor: pointer;
+      box-shadow: 0 4px 0 #0f172a;
+      transition: transform 0.05s;
+    }
+
+    .console-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #0f172a;
+    }
+
+    .console-btn.target-highlight {
+      border-color: #eab308;
+      color: #fde047;
+      box-shadow: 0 0 12px rgba(234, 179, 8, 0.4);
+    }
+
+    .setting-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid #1e293b;
+      font-size: 0.83rem;
+      gap: 8px;
+    }
+
+    .chat-box {
+      height: 120px;
+      overflow-y: auto;
+      background: #050608;
+      border: 1px solid var(--border-color);
+      padding: 10px;
+      margin-bottom: 8px;
+      font-size: 0.82rem;
+    }
+
+    .chat-input-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    input[type="text"], input[type="email"], select {
+      background: #050608;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 8px;
+      border-radius: 4px;
+      width: 100%;
+    }
+
+    #rules-modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 92%;
+      max-width: 520px;
+      max-height: 82vh;
+      overflow-y: auto;
+      background: #0b0d14;
+      border: 2px solid var(--accent-blue);
+      border-radius: 10px;
+      padding: 20px;
+      z-index: 1000;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.95);
+    }
+
+    #cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #090b10;
+      border-top: 2px solid var(--accent-blue);
+      padding: 14px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      z-index: 999;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 30px;
+    }
+
+    footer a {
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>Infinity Nexus</h1>
-        <p>Building worlds. Creating history.</p>
-    </header>
+  <div class="security-bar" id="security-bar">
+    <div><span class="status-dot"></span>ANTI-CHEAT & BOT SHIELD: ACTIVE</div>
+    <div>COOKIE POLICY: STRICT</div>
+  </div>
 
-    <section>
-        <h2>Our History</h2>
-        <p>Every great company starts with an idea. This is where our journey begins.</p>
-    </section>
+  <header>
+    🎭</div>
+    <h1>Infinity Nexus</h1>
+    <p class="tagline" id="header-bio">Building worlds. Creating history.</p>
+    <div class="header-actions">
+      <button class="play-launch-btn" onclick="launchGame()">▶ ENTER 3D NEXUS WORLD</button>
+      <button class="btn" id="music-btn" onclick="toggleMusic()">🔇 MUSIC: OFF</button>
+      <button class="btn" onclick="toggleRulesModal()">📖 RULES & GUIDE</button>
+    </div>
+  </header>
 
-    <section>
-        <h2>Our Vision</h2>
-        <p>We aim to create exciting gaming experiences and build a company for the future.</p>
-    </section>
+  <div class="container">
 
-    <section>
-        <h2>Future Projects</h2>
-        <p>New ideas, new games, and new opportunities are ahead.</p>
-    </section>
+    <div class="ad-slot">
+      [ ADVERTISEMENT SPACE — Google AdSense / Ad Manager Banner ]
+    </div>
 
-</body>
-</html>
+    <!-- Account & Persistent Rank Bar -->
+    <div class="auth-panel">
+      <div>
+        <strong id="user-status">Mode: Guest (Sandbox Access)</strong>
+        <p id="user-role" style="font-size: 0.8rem; color: var(--text-muted);">Create your Nexus Account with Gmail to save levels, VIP progress, and guild rosters.</p>
+        <p style="font-size: 0.85rem; margin-top: 4px;">
+          Level: <strong id="level-display" style="color:#38bdf8;">1</strong>/50 (<strong id="vip-title-display" style="color:#eab308;">Survivor</strong>) |
+          Credits: <span class="stat-value" id="credit-display" style="font-size: 1rem;">0</span> | 
+          Friends: <strong id="friend-count">0</strong>/1000
+        </p>
+      </div>
+      
