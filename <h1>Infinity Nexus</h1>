@@ -4,9 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Gaming Company</title>
+
+    <title>Infinity Nexus</title>
+
+    <!-- Website logo icon -->
+    <link rel="icon" type="image/png" href="logo.png">
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -17,76 +25,153 @@
 
         header {
             background: #191d2e;
-            padding: 25px;
+            padding: 45px 20px;
         }
 
         h1 {
             color: #65b5ff;
+            font-size: 36px;
+        }
+
+        header p {
+            color: #cccccc;
         }
 
         nav {
             background: #252b40;
-            padding: 15px;
+            padding: 18px 10px;
         }
 
         nav a {
             color: white;
             text-decoration: none;
             margin: 10px;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            color: #65b5ff;
         }
 
         section {
-            padding: 45px 20px;
+            padding: 55px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #65b5ff;
         }
 
         p {
             color: #cccccc;
-            line-height: 1.6;
+            line-height: 1.7;
+        }
+
+        .welcome {
+            padding: 75px 20px;
+        }
+
+        .welcome h2 {
+            font-size: 30px;
+        }
+
+        .project {
+            background: #191d2e;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 15px 0;
         }
 
         footer {
             background: #191d2e;
-            padding: 20px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            nav a {
+                margin: 7px;
+            }
         }
     </style>
 </head>
 
 <body>
 
+    <!-- Company header -->
     <header>
-        <h1>Our Gaming Company</h1>
-        <p>Building worlds. Creating history.</p>
+        <h1>INFINITY NEXUS</h1>
+        <p>Building Worlds. Creating History.</p>
     </header>
 
+    <!-- Navigation -->
     <nav>
+        <a href="#home">Home</a>
         <a href="#history">History</a>
         <a href="#vision">Vision</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
     </nav>
 
+    <!-- Homepage -->
+    <section class="welcome" id="home">
+        <h2>Welcome to Infinity Nexus</h2>
+        <p>
+            A gaming company built around creativity,
+            imagination, and the future of gaming.
+        </p>
+    </section>
+
+    <!-- History -->
     <section id="history">
         <h2>Our History</h2>
-        <p>Every great company starts with an idea. This is where our journey begins.</p>
+        <p>
+            Every great company starts with an idea.
+            Infinity Nexus begins with a vision to
+            create something meaningful in gaming.
+        </p>
     </section>
 
+    <!-- Vision -->
     <section id="vision">
         <h2>Our Vision</h2>
-        <p>We aim to create exciting gaming experiences and build a company for the future.</p>
+        <p>
+            Our goal is to develop exciting gaming
+            experiences, encourage creativity, and
+            build a company for the future.
+        </p>
     </section>
 
+    <!-- Projects -->
     <section id="projects">
         <h2>Future Projects</h2>
-        <p>New ideas, new games, and new opportunities are ahead.</p>
+
+        <div class="project">
+            <h3>Game Development</h3>
+            <p>New gaming ideas and experiences are in development.</p>
+        </div>
+
+        <div class="project">
+            <h3>Future Worlds</h3>
+            <p>Exploring new possibilities in interactive entertainment.</p>
+        </div>
     </section>
 
+    <!-- Contact -->
     <section id="contact">
-        <h2>Contact Us</h2>
-        <p>More information about our company will be shared here.</p>
+        <h2>Contact</h2>
+        <p>More information about contacting Infinity Nexus will be shared here.</p>
     </section>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Our Gaming Company. All rights reserved.</p>
+        <p>&copy; 2026 Infinity Nexus. All rights reserved.</p>
+        <p>Building Worlds. Creating History.</p>
     </footer>
 
 </body>
