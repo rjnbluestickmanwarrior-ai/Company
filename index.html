@@ -3,294 +3,283 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07080a">
+
   <title>Infinity Nexus | Building Worlds. Creating History.</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://w3.org viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎭</text></svg>">
-  <meta property="og:title" content="Infinity Nexus Studios | Building Worlds. Creating History.">
-  <meta property="og:description" content="Official hub for Infinity Nexus — 3D horror survival, scrambling code-combat, and guild wars.">
+
+  <meta name="description" content="Welcome to Infinity Nexus, a gaming studio building worlds and creating history.">
+
   <style>
     :root {
       --bg-dark: #07080a;
       --bg-panel: #0f1117;
       --bg-card: #161922;
-      --accent-blue: #3b82f6;
-      --accent-crimson: #991b1b;
-      --accent-gold: #eab308;
-      --text-main: #e2e8f0;
-      --text-muted: #64748b;
-      --border-color: #1e293b;
+      --blue: #3b82f6;
+      --red: #991b1b;
+      --gold: #eab308;
+      --green: #22c55e;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --border: #1e293b;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Courier New', Courier, monospace;
+      font-family: 'Courier New', monospace;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      background-color: var(--bg-dark);
-      color: var(--text-main);
+      background: var(--bg-dark);
+      color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
     }
 
+    button {
+      cursor: pointer;
+    }
+
     .security-bar {
       background: #020304;
-      border-bottom: 1px solid var(--accent-crimson);
-      padding: 6px 16px;
-      font-size: 0.75rem;
+      border-bottom: 1px solid var(--red);
+      padding: 8px 16px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
       flex-wrap: wrap;
       gap: 8px;
-      color: #94a3b8;
+      font-size: 12px;
+      color: var(--muted);
     }
 
     .status-dot {
+      display: inline-block;
       height: 8px;
       width: 8px;
-      background-color: #22c55e;
+      background: var(--green);
       border-radius: 50%;
-      display: inline-block;
-      margin-right: 6px;
-      box-shadow: 0 0 8px #22c55e;
+      margin-right: 7px;
     }
 
     header {
-      background: radial-gradient(circle at center, #111827 0%, #07080a 100%);
-      border-bottom: 1px solid var(--border-color);
-      padding: 32px 20px;
+      background: radial-gradient(circle, #17233a, #07080a 75%);
+      border-bottom: 1px solid var(--border);
+      padding: 40px 20px;
       text-align: center;
     }
 
     .masked-entity-emblem {
-      width: 74px;
-      height: 74px;
-      margin: 0 auto 12px;
-      border: 2px solid var(--text-muted);
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 15px;
+      border: 2px solid var(--muted);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       background: #000;
-      box-shadow: 0 0 25px rgba(153, 27, 27, 0.45);
-      font-size: 2rem;
+      box-shadow: 0 0 25px rgba(153, 27, 27, .5);
+      font-size: 35px;
     }
 
     h1 {
-      color: var(--accent-blue);
-      font-size: 2.1rem;
+      color: var(--blue);
+      font-size: clamp(25px, 6vw, 40px);
       letter-spacing: 3px;
-      text-transform: uppercase;
-      text-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+      text-shadow: 0 0 15px rgba(59, 130, 246, .5);
     }
 
     .tagline {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-top: 6px;
+      color: var(--muted);
+      margin-top: 8px;
     }
 
     .header-actions {
       display: flex;
       justify-content: center;
-      gap: 10px;
       flex-wrap: wrap;
-      margin-top: 16px;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .btn {
+      background: var(--bg-card);
+      color: var(--text);
+      border: 1px solid var(--blue);
+      border-radius: 5px;
+      padding: 11px 16px;
+      font-weight: bold;
+      transition: .2s;
+    }
+
+    .btn:hover {
+      background: var(--blue);
+      color: #000;
     }
 
     .play-launch-btn {
-      background: var(--accent-crimson);
-      color: #fff;
+      background: var(--red);
+      color: white;
       border: 1px solid #f87171;
-      padding: 13px 26px;
-      font-size: 1rem;
+      border-radius: 5px;
+      padding: 13px 22px;
       font-weight: bold;
-      letter-spacing: 2px;
-      border-radius: 6px;
-      cursor: pointer;
-      box-shadow: 0 0 20px rgba(153, 27, 27, 0.5);
-      transition: 0.2s;
+      letter-spacing: 1px;
     }
 
     .play-launch-btn:hover {
       background: #b91c1c;
-      transform: scale(1.03);
     }
 
     .container {
       max-width: 1100px;
-      margin: 0 auto;
+      margin: auto;
       padding: 20px;
+    }
+
+    .section-title {
+      color: var(--blue);
+      margin-bottom: 15px;
+      font-size: 21px;
     }
 
     .ad-slot {
       background: #0b0d12;
       border: 1px dashed #334155;
-      color: var(--text-muted);
+      color: var(--muted);
       text-align: center;
       padding: 16px;
       margin: 18px 0;
-      font-size: 0.8rem;
       border-radius: 6px;
+      font-size: 12px;
+    }
+
+    .auth-panel,
+    .card {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
     }
 
     .auth-panel {
-      background: var(--bg-panel);
-      border: 1px solid var(--border-color);
-      padding: 18px;
-      border-radius: 8px;
-      margin-bottom: 22px;
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      gap: 14px;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 25px;
     }
 
-    .btn {
-      background: var(--bg-card);
-      color: var(--text-main);
-      border: 1px solid var(--accent-blue);
-      padding: 9px 14px;
-      cursor: pointer;
-      border-radius: 4px;
-      font-weight: bold;
-      font-size: 0.84rem;
-      transition: 0.2s;
-    }
-
-    .btn:hover {
-      background: var(--accent-blue);
-      color: #000;
-    }
-
-    .btn-danger { border-color: var(--accent-crimson); color: #fca5a5; }
-    .btn-danger:hover { background: var(--accent-crimson); color: #fff; }
-    .btn-green { border-color: #22c55e; color: #86efac; }
-    .btn-green:hover { background: #22c55e; color: #000; }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-      gap: 20px;
-      margin-bottom: 24px;
-    }
-
-    .card {
-      background: var(--bg-panel);
-      border: 1px solid var(--border-color);
-      padding: 20px;
-      border-radius: 8px;
-    }
-
-    .card h2 {
-      font-size: 1.08rem;
-      color: #f8fafc;
-      margin-bottom: 12px;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 8px;
-    }
-
-    .stat-box {
-      background: #07080a;
-      padding: 12px;
-      border-radius: 4px;
-      border: 1px solid #1e293b;
-      margin-top: 10px;
-      font-size: 0.84rem;
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 12px;
+      font-size: 13px;
     }
 
     .stat-value {
-      font-size: 1.25rem;
-      color: #22c55e;
+      color: var(--green);
       font-weight: bold;
     }
 
-    /* Nintendo-Inspired Contest & Horror Arcade */
-    .nintendo-console {
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+
+    .card h2 {
+      color: white;
+      font-size: 17px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .card .btn {
+      margin-top: 15px;
+    }
+
+    .nexus-console {
       background: linear-gradient(145deg, #18181b, #09090b);
       border: 2px solid #ef4444;
-      border-radius: 14px;
-      padding: 18px;
-      margin-bottom: 24px;
-      box-shadow: 0 0 25px rgba(239, 68, 68, 0.2);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 0 25px rgba(239, 68, 68, .15);
     }
 
     .console-screen {
       background: #020617;
-      border: 2px solid #334155;
+      border: 1px solid #334155;
       border-radius: 8px;
-      padding: 14px;
-      margin-bottom: 14px;
+      padding: 22px 12px;
       text-align: center;
+      margin-bottom: 15px;
     }
 
-    .progress-bar-wrap {
-      width: 100%;
-      height: 14px;
-      background: #1e293b;
-      border-radius: 7px;
-      overflow: hidden;
-      margin: 10px 0;
-    }
-
-    .progress-bar-fill {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #ef4444, #eab308, #22c55e);
-      transition: width 0.15s;
+    .console-screen h2 {
+      color: var(--gold);
+      margin-bottom: 8px;
     }
 
     .console-pad-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
     }
 
     .console-btn {
       background: #1e293b;
       border: 2px solid #64748b;
-      color: #f8fafc;
-      padding: 14px 6px;
-      border-radius: 50px;
+      color: white;
+      padding: 18px 8px;
+      border-radius: 8px;
       font-weight: bold;
-      font-size: 0.84rem;
-      cursor: pointer;
-      box-shadow: 0 4px 0 #0f172a;
-      transition: transform 0.05s;
+      font-size: 15px;
     }
 
-    .console-btn:active {
-      transform: translateY(3px);
-      box-shadow: 0 1px 0 #0f172a;
+    .console-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
     }
 
-    .console-btn.target-highlight {
-      border-color: #eab308;
-      color: #fde047;
-      box-shadow: 0 0 12px rgba(234, 179, 8, 0.4);
+    .progress-bar-wrap {
+      background: #1e293b;
+      height: 13px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 15px 0;
     }
 
-    .setting-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 8px 0;
-      border-bottom: 1px solid #1e293b;
-      font-size: 0.83rem;
-      gap: 8px;
+    .progress-bar-fill {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--red), var(--gold), var(--green));
+      transition: width .3s;
     }
 
     .chat-box {
-      height: 120px;
+      height: 130px;
       overflow-y: auto;
       background: #050608;
-      border: 1px solid var(--border-color);
+      border: 1px solid var(--border);
       padding: 10px;
-      margin-bottom: 8px;
-      font-size: 0.82rem;
+      margin: 12px 0;
+      font-size: 13px;
     }
 
     .chat-input-row {
@@ -298,13 +287,14 @@
       gap: 8px;
     }
 
-    input[type="text"], input[type="email"], select {
-      background: #050608;
-      border: 1px solid var(--border-color);
-      color: var(--text-main);
-      padding: 8px;
-      border-radius: 4px;
+    input, select {
+      min-width: 0;
       width: 100%;
+      background: #050608;
+      color: white;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 10px;
     }
 
     #rules-modal {
@@ -315,14 +305,31 @@
       transform: translate(-50%, -50%);
       width: 92%;
       max-width: 520px;
-      max-height: 82vh;
+      max-height: 80vh;
       overflow-y: auto;
       background: #0b0d14;
-      border: 2px solid var(--accent-blue);
+      border: 2px solid var(--blue);
       border-radius: 10px;
-      padding: 20px;
+      padding: 22px;
+      z-index: 1001;
+    }
+
+    #rules-modal h2 {
+      color: var(--blue);
+      margin-bottom: 15px;
+    }
+
+    #rules-modal p {
+      margin-bottom: 12px;
+      color: var(--muted);
+    }
+
+    #modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .8);
       z-index: 1000;
-      box-shadow: 0 0 40px rgba(0, 0, 0, 0.95);
     }
 
     #cookie-banner {
@@ -331,64 +338,609 @@
       left: 0;
       right: 0;
       background: #090b10;
-      border-top: 2px solid var(--accent-blue);
-      padding: 14px 20px;
+      border-top: 2px solid var(--blue);
+      padding: 15px 20px;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
       gap: 12px;
       z-index: 999;
     }
 
     footer {
       text-align: center;
-      padding: 28px 20px;
-      border-top: 1px solid var(--border-color);
-      color: var(--text-muted);
-      font-size: 0.85rem;
+      padding: 30px 15px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
       margin-top: 30px;
     }
 
     footer a {
-      color: var(--accent-blue);
+      color: var(--blue);
       text-decoration: none;
+    }
+
+    .notice {
+      color: var(--gold);
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 13px;
+      }
+
+      .auth-panel {
+        align-items: flex-start;
+      }
+
+      .stats {
+        gap: 10px;
+      }
+
+      .chat-input-row {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
+
 <body>
 
-  <div class="security-bar" id="security-bar">
-    <div><span class="status-dot"></span>ANTI-CHEAT & BOT SHIELD: ACTIVE</div>
-    <div>COOKIE POLICY: STRICT</div>
+  <div class="security-bar">
+    <div><span class="status-dot"></span>NEXUS SYSTEM: ONLINE</div>
+    <div>INFINITY NEXUS STUDIOS</div>
   </div>
 
   <header>
-    🎭</div>
-    <h1>Infinity Nexus</h1>
-    <p class="tagline" id="header-bio">Building worlds. Creating history.</p>
+    <div class="masked-entity-emblem">🎭</div>
+
+    <h1>INFINITY NEXUS</h1>
+
+    <p class="tagline">Building Worlds. Creating History.</p>
+
     <div class="header-actions">
-      <button class="play-launch-btn" onclick="launchGame()">▶ ENTER 3D NEXUS WORLD</button>
-      <button class="btn" id="music-btn" onclick="toggleMusic()">🔇 MUSIC: OFF</button>
-      <button class="btn" onclick="toggleRulesModal()">📖 RULES & GUIDE</button>
+      <button class="play-launch-btn" onclick="launchGame()">
+        ▶ ENTER NEXUS ARCADE
+      </button>
+
+      <button class="btn" onclick="toggleMusic()" id="music-btn">
+        🔇 MUSIC: OFF
+      </button>
+
+      <button class="btn" onclick="toggleRulesModal()">
+        📖 RULES & GUIDE
+      </button>
     </div>
   </header>
 
-  <div class="container">
+  <main class="container">
 
     <div class="ad-slot">
-      [ ADVERTISEMENT SPACE — Google AdSense / Ad Manager Banner ]
+      ADVERTISEMENT SPACE
+      <br>
+      <small>Reserved for future approved advertising.</small>
     </div>
 
-    <!-- Account & Persistent Rank Bar -->
-    <div class="auth-panel">
+    <!-- PLAYER PROFILE -->
+
+    <section class="auth-panel">
       <div>
-        <strong id="user-status">Mode: Guest (Sandbox Access)</strong>
-        <p id="user-role" style="font-size: 0.8rem; color: var(--text-muted);">Create your Nexus Account with Gmail to save levels, VIP progress, and guild rosters.</p>
-        <p style="font-size: 0.85rem; margin-top: 4px;">
-          Level: <strong id="level-display" style="color:#38bdf8;">1</strong>/50 (<strong id="vip-title-display" style="color:#eab308;">Survivor</strong>) |
-          Credits: <span class="stat-value" id="credit-display" style="font-size: 1rem;">0</span> | 
-          Friends: <strong id="friend-count">0</strong>/1000
+        <strong id="user-status">Mode: Guest</strong>
+
+        <p id="user-role">
+          Welcome to Infinity Nexus. Explore the world and arcade.
         </p>
+
+        <div class="stats">
+          <span>Level: <strong id="level-display">1</strong>/50</span>
+          <span>Rank: <strong id="vip-title-display">Survivor</strong></span>
+          <span>Credits: <strong class="stat-value" id="credit-display">0</strong></span>
+          <span>Friends: <strong id="friend-count">0</strong>/1000</span>
+        </div>
       </div>
-      
+
+      <button class="btn" onclick="resetProgress()">
+        RESET DEMO PROGRESS
+      </button>
+    </section>
+
+    <!-- ABOUT -->
+
+    <h2 class="section-title">THE INFINITY NEXUS UNIVERSE</h2>
+
+    <section class="grid">
+
+      <article class="card">
+        <h2>🌌 Our Vision</h2>
+        <p>
+          Infinity Nexus is a gaming studio concept focused on building
+          immersive worlds, creative experiences, and interactive adventures.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>🎮 Game Development</h2>
+        <p>
+          Our future projects explore horror survival, competitive
+          challenges, exploration, and community-driven gameplay.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>🏆 Our Community</h2>
+        <p>
+          We aim to create a welcoming environment where players
+          can explore, compete fairly, and build friendships.
+        </p>
+      </article>
+
+    </section>
+
+    <!-- ARCADE -->
+
+    <section class="nexus-console" id="arcade">
+
+      <h2 class="section-title">🎮 NEXUS ARCADE</h2>
+
+      <div class="console-screen">
+        <h2 id="game-title">WELCOME, PLAYER</h2>
+
+        <p id="game-message">
+          Select a challenge below to begin.
+        </p>
+
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="game-progress"></div>
+        </div>
+
+        <p>Score: <strong id="game-score">0</strong></p>
+      </div>
+
+      <div class="console-pad-grid">
+
+        <button class="console-btn" onclick="playChallenge('memory')">
+          🧠 MEMORY CHALLENGE
+        </button>
+
+        <button class="console-btn" onclick="playChallenge('speed')">
+          ⚡ SPEED CHALLENGE
+        </button>
+
+        <button class="console-btn" onclick="playChallenge('explore')">
+          🌌 EXPLORATION
+        </button>
+
+        <button class="console-btn" onclick="playChallenge('puzzle')">
+          🔐 CODE PUZZLE
+        </button>
+
+      </div>
+
+      <p class="notice">
+        Demo arcade: scores and credits are fictional and have no cash value.
+      </p>
+
+    </section>
+
+    <!-- LEVELS -->
+
+    <h2 class="section-title">🏆 PLAYER PROGRESSION</h2>
+
+    <section class="grid">
+
+      <article class="card">
+        <h2>Player Level</h2>
+        <p>Earn demo experience by completing arcade challenges.</p>
+        <p style="margin-top:12px">
+          Current level: <strong id="level-card">1</strong>
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Guild System</h2>
+        <p>
+          Future players will be able to create guilds,
+          organize teams, and participate in community events.
+        </p>
+        <p class="notice">Guild features are not connected yet.</p>
+      </article>
+
+      <article class="card">
+        <h2>Friends Network</h2>
+        <p>
+          A future social feature for connecting with other
+          players in the Infinity Nexus community.
+        </p>
+        <p class="notice">Online accounts are not available yet.</p>
+      </article>
+
+    </section>
+
+    <!-- COMMUNITY CHAT DEMO -->
+
+    <h2 class="section-title">💬 COMMUNITY CHAT DEMO</h2>
+
+    <section class="card">
+      <p>This is a local demonstration. Messages are not sent online.</p>
+
+      <div class="chat-box" id="chat-box">
+        <p><strong>NEXUS:</strong> Welcome to the community demo!</p>
+      </div>
+
+      <div class="chat-input-row">
+        <input
+          type="text"
+          id="chat-input"
+          maxlength="150"
+          placeholder="Write a message..."
+        >
+
+        <button class="btn" onclick="sendMessage()">SEND</button>
+      </div>
+    </section>
+
+    <!-- COMPANY INFORMATION -->
+
+    <h2 class="section-title" style="margin-top:25px">
+      🏢 COMPANY INFORMATION
+    </h2>
+
+    <section class="grid">
+
+      <article class="card">
+        <h2>Our History</h2>
+        <p>
+          Infinity Nexus is being developed as a gaming company
+          concept with a focus on creativity, technology,
+          and interactive entertainment.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Our Mission</h2>
+        <p>
+          To build imaginative gaming experiences and create
+          a positive environment for players.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Future Projects</h2>
+        <p>
+          New worlds, arcade experiences, community features,
+          and original games are part of our development vision.
+        </p>
+      </article>
+
+    </section>
+
+  </main>
+
+  <!-- RULES MODAL -->
+
+  <div id="modal-overlay" onclick="toggleRulesModal()"></div>
+
+  <div id="rules-modal">
+
+    <h2>📖 NEXUS RULES & GUIDE</h2>
+
+    <p><strong>1. Respect:</strong> Treat other players respectfully.</p>
+
+    <p><strong>2. Fair Play:</strong> Do not exploit bugs or cheat.</p>
+
+    <p><strong>3. Privacy:</strong> Never share passwords or private information.</p>
+
+    <p><strong>4. Community:</strong> Keep discussions welcoming.</p>
+
+    <p><strong>5. Safety:</strong> Report suspicious activity through
+      appropriate support channels.</p>
+
+    <p><strong>6. Development:</strong> Features marked as future projects
+      are not currently operational.</p>
+
+    <button class="btn" onclick="toggleRulesModal()">CLOSE GUIDE</button>
+
+  </div>
+
+  <!-- COOKIE NOTICE -->
+
+  <div id="cookie-banner">
+    <p style="font-size:13px">
+      This demonstration website uses basic browser storage
+      to remember local arcade progress.
+    </p>
+
+    <button class="btn" onclick="acceptCookies()">GOT IT</button>
+  </div>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <h2 style="color:var(--blue)">INFINITY NEXUS</h2>
+
+    <p>Building Worlds. Creating History.</p>
+
+    <p style="margin-top:10px">
+      © <span id="year"></span> Infinity Nexus. All rights reserved.
+    </p>
+
+    <p style="margin-top:8px">
+      <a href="#arcade">Arcade</a> |
+      <a href="#" onclick="toggleRulesModal(); return false;">Rules</a> |
+      <a href="#top" onclick="window.scrollTo(0,0); return false;">Back to top</a>
+    </p>
+
+    <p class="notice">
+      Website prototype — online services are not yet connected.
+    </p>
+  </footer>
+
+  <script>
+    // INFINITY NEXUS: BASIC WEBSITE FUNCTIONS
+
+    let score = 0;
+    let credits = 0;
+    let level = 1;
+    let musicOn = false;
+    let audioContext = null;
+
+    // Load local demo progress safely.
+
+    function loadProgress() {
+      try {
+        const saved = JSON.parse(
+          localStorage.getItem("nexusProgress") || "{}"
+        );
+
+        score = Number(saved.score) || 0;
+        credits = Number(saved.credits) || 0;
+        level = Math.min(50, Math.max(1, Number(saved.level) || 1));
+      } catch (error) {
+        score = 0;
+        credits = 0;
+        level = 1;
+      }
+
+      updateDisplay();
+    }
+
+    function saveProgress() {
+      try {
+        localStorage.setItem("nexusProgress", JSON.stringify({
+          score: score,
+          credits: credits,
+          level: level
+        }));
+      } catch (error) {
+        console.log("Local storage is unavailable.");
+      }
+    }
+
+    function updateDisplay() {
+      document.getElementById("game-score").textContent = score;
+      document.getElementById("credit-display").textContent = credits;
+      document.getElementById("level-display").textContent = level;
+      document.getElementById("level-card").textContent = level;
+
+      let rank = "Survivor";
+
+      if (level >= 10) rank = "Explorer";
+      if (level >= 20) rank = "Elite";
+      if (level >= 35) rank = "Master";
+      if (level >= 50) rank = "Nexus Legend";
+
+      document.getElementById("vip-title-display").textContent = rank;
+    }
+
+    // Launch arcade.
+
+    function launchGame() {
+      document.getElementById("arcade").scrollIntoView({
+        behavior: "smooth"
+      });
+
+      document.getElementById("game-message").textContent =
+        "Choose your challenge, player!";
+    }
+
+    // Arcade challenges.
+
+    function playChallenge(type) {
+      let points = 0;
+      let title = "";
+      let message = "";
+
+      if (type === "memory") {
+        title = "MEMORY CHALLENGE";
+        message = "You completed the memory demonstration!";
+        points = 10;
+      }
+
+      else if (type === "speed") {
+        title = "SPEED CHALLENGE";
+        message = "You completed the speed demonstration!";
+        points = 15;
+      }
+
+      else if (type === "explore") {
+        title = "EXPLORATION";
+        message = "You discovered a new demo location!";
+        points = 20;
+      }
+
+      else if (type === "puzzle") {
+        title = "CODE PUZZLE";
+        message = "You solved the demonstration puzzle!";
+        points = 25;
+      }
+
+      score += points;
+      credits += points;
+
+      level = Math.min(50, 1 + Math.floor(score / 100));
+
+      document.getElementById("game-title").textContent = title;
+      document.getElementById("game-message").textContent = message;
+
+      const progress = score % 100;
+
+      document.getElementById("game-progress").style.width =
+        progress + "%";
+
+      updateDisplay();
+      saveProgress();
+    }
+
+    // Reset local demo progress.
+
+    function resetProgress() {
+      if (!confirm("Reset your local demo progress?")) return;
+
+      score = 0;
+      credits = 0;
+      level = 1;
+
+      updateDisplay();
+      saveProgress();
+
+      document.getElementById("game-message").textContent =
+        "Progress has been reset.";
+    }
+
+    // Rules window.
+
+    function toggleRulesModal() {
+      const modal = document.getElementById("rules-modal");
+      const overlay = document.getElementById("modal-overlay");
+
+      const isOpen = modal.style.display === "block";
+
+      modal.style.display = isOpen ? "none" : "block";
+      overlay.style.display = isOpen ? "none" : "block";
+    }
+
+    // Cookie notice.
+
+    function acceptCookies() {
+      document.getElementById("cookie-banner").style.display = "none";
+
+      try {
+        localStorage.setItem("nexusNoticeAccepted", "yes");
+      } catch (error) {
+        console.log("Storage unavailable.");
+      }
+    }
+
+    function checkNotice() {
+      try {
+        if (localStorage.getItem("nexusNoticeAccepted") === "yes") {
+          document.getElementById("cookie-banner").style.display = "none";
+        }
+      } catch (error) {
+        console.log("Storage unavailable.");
+      }
+    }
+
+    // Local demonstration chat.
+
+    function sendMessage() {
+      const input = document.getElementById("chat-input");
+      const chat = document.getElementById("chat-box");
+      const message = input.value.trim();
+
+      if (!message) return;
+
+      const line = document.createElement("p");
+      const label = document.createElement("strong");
+
+      label.textContent = "GUEST: ";
+      line.appendChild(label);
+      line.appendChild(document.createTextNode(message));
+
+      chat.appendChild(line);
+      chat.scrollTop = chat.scrollHeight;
+
+      input.value = "";
+    }
+
+    document.getElementById("chat-input").addEventListener(
+      "keydown",
+      function(event) {
+        if (event.key === "Enter") {
+          sendMessage();
+        }
+      }
+    );
+
+    // Optional generated tone demonstration.
+
+    function toggleMusic() {
+      const button = document.getElementById("music-btn");
+
+      if (!musicOn) {
+        try {
+          const AudioContextClass =
+            window.AudioContext || window.webkitAudioContext;
+
+          if (!AudioContextClass) {
+            alert("Audio is not supported by this browser.");
+            return;
+          }
+
+          audioContext = new AudioContextClass();
+
+          const oscillator = audioContext.createOscillator();
+          const gain = audioContext.createGain();
+
+          oscillator.type = "sine";
+          oscillator.frequency.value = 110;
+
+          gain.gain.value = 0.025;
+
+          oscillator.connect(gain);
+          gain.connect(audioContext.destination);
+
+          oscillator.start();
+
+          window.nexusOscillator = oscillator;
+          window.nexusGain = gain;
+
+          musicOn = true;
+          button.textContent = "🔊 MUSIC: ON";
+
+        } catch (error) {
+          alert("Audio could not be started.");
+        }
+
+      } else {
+        if (window.nexusOscillator) {
+          window.nexusOscillator.stop();
+          window.nexusOscillator = null;
+        }
+
+        if (audioContext) {
+          audioContext.close();
+          audioContext = null;
+        }
+
+        musicOn = false;
+        button.textContent = "🔇 MUSIC: OFF";
+      }
+    }
+
+    // Initialize website.
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    loadProgress();
+    checkNotice();
+
+  </script>
+
+</body>
+</html>
