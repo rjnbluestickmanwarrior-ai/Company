@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Gaming Company</title>
+
     <style>
         body {
             margin: 0;
@@ -24,6 +24,17 @@
             color: #65b5ff;
         }
 
+        nav {
+            background: #252b40;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+        }
+
         section {
             padding: 45px 20px;
         }
@@ -32,8 +43,14 @@
             color: #cccccc;
             line-height: 1.6;
         }
+
+        footer {
+            background: #191d2e;
+            padding: 20px;
+        }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -41,20 +58,36 @@
         <p>Building worlds. Creating history.</p>
     </header>
 
-    <section>
+    <nav>
+        <a href="#history">History</a>
+        <a href="#vision">Vision</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="history">
         <h2>Our History</h2>
         <p>Every great company starts with an idea. This is where our journey begins.</p>
     </section>
 
-    <section>
+    <section id="vision">
         <h2>Our Vision</h2>
         <p>We aim to create exciting gaming experiences and build a company for the future.</p>
     </section>
 
-    <section>
+    <section id="projects">
         <h2>Future Projects</h2>
         <p>New ideas, new games, and new opportunities are ahead.</p>
     </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>More information about our company will be shared here.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Our Gaming Company. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
